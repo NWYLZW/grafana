@@ -40,6 +40,7 @@ export interface DashboardPageRouteParams {
 }
 
 type DashboardPageRouteSearchParams = {
+  iframe?: 1;
   tab?: string;
   folderId?: string;
   editPanel?: string;
@@ -325,7 +326,11 @@ export class UnthemedDashboardPage extends PureComponent<Props, State> {
     const containerClassNames = classnames(styles.dashboardContainer, {
       'panel-in-fullscreen': viewPanel,
     });
-    const showSubMenu = !editPanel && kioskMode === KioskMode.Off && !this.props.queryParams.editview;
+    const showSubMenu = !editPanel && (
+      kioskMode === KioskMode.Off
+      || kioskMode === KioskMode.Ok
+      || queryParams.iframe
+    ) && !this.props.queryParams.editview;
 
     return (
       <div className={containerClassNames}>

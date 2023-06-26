@@ -81,6 +81,7 @@ export interface DashboardInitError {
 }
 
 export enum KioskMode {
+  Ok = 'ok',
   Off = 'off',
   TV = 'tv',
   Full = 'full',

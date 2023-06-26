@@ -29,6 +29,8 @@ export function getKioskMode(): KioskMode {
   switch (kiosk) {
     case 'tv':
       return KioskMode.TV;
+    case 'ok':
+      return KioskMode.Ok;
     //  legacy support
     case '1':
     case true:
