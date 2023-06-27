@@ -64,7 +64,7 @@ export const NavBarUnconnected = React.memo(({ navBarTree }: Props) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const query = new URLSearchParams(location.search);
-  if (kiosk !== KioskMode.Off || kiosk === KioskMode.Ok || query.get('iframe')) {
+  if (kiosk !== KioskMode.Off || query.get('iframe')) {
     return null;
   }
 
