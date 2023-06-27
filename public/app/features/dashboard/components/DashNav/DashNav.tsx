@@ -153,7 +153,10 @@ export const DashNav = React.memo<Props>((props) => {
     const { canStar, canShare, isStarred } = dashboard.meta;
     const buttons: ReactNode[] = [];
 
-    if (kioskMode !== KioskMode.Off || isPlaylistRunning()) {
+    if ((
+      kioskMode !== KioskMode.Off && kioskMode !== KioskMode.Ok
+    ) || !new URLSearchParams(location.search).get('iframe')
+      || isPlaylistRunning()) {
       return [];
     }
 
